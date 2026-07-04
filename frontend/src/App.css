@@ -1,0 +1,328 @@
+.landingPageContainer {
+  width: 100%;
+  min-height: 100vh;
+  background: url("/public/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.landingPageContainer nav {
+  padding-inline: 1.2rem;
+  padding-block: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.landingPageContainer nav h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.landingPageContainer nav .navlist {
+  display: flex;
+  gap: 1.6rem;
+  cursor: pointer;
+  align-items: center;
+
+}
+
+.landingMainContainer {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 3rem;
+  min-height: 80vh;
+  align-items: center;
+  gap: 2rem;
+}
+
+.landingMainContainer>div:nth-child(1) {
+  font-size: 2.2rem;
+  max-width: 680px;
+}
+
+.landingMainContainer>div:nth-child(1) p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+.landingActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.9rem;
+}
+
+.landingMainContainer>div:nth-child(1) .landingActions div[role='button'] {
+  background: #D97500;
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.landingMainContainer>div:nth-child(1) .landingActions .secondaryAction {
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.48);
+}
+
+.landingMainContainer>div:nth-child(1) .landingActions div[role='button'] a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.7rem;
+}
+
+.landingMainContainer>div:nth-child(2) img {
+  height: 70vh;
+  width: auto;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 20px;
+  text-align: center;
+
+}
+.meetContainer {
+  display: flex;
+  padding-inline: 20px;
+  height: 80vh;
+  gap: 10vw;
+  justify-content: center;
+}
+
+
+
+.leftPanel {
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+}
+
+.rightPanel {
+  display: flex;
+  align-items: center;
+}
+
+.rightPanel > img {
+  width: 30vw;
+  height: auto;
+  border-radius: 20px;
+}
+
+.resumePage {
+  min-height: 100vh;
+  background: #f6f8fb;
+  color: #152033;
+}
+
+.resumeHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem 4vw;
+  background: white;
+  border-bottom: 1px solid #dfe5ee;
+}
+
+.resumeHeader div {
+  flex: 1;
+}
+
+.resumeHeader p,
+.previewLabel {
+  color: #607089;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.resumeHeader h1 {
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  margin-top: 0.3rem;
+}
+
+.resumeLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+  gap: 2rem;
+  padding: 2rem 4vw;
+  align-items: start;
+}
+
+.resumeEditor,
+.resumePreview {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.resumeSection,
+.projectEditor,
+.resumePreview {
+  background: white;
+  border: 1px solid #dfe5ee;
+  border-radius: 8px;
+  padding: 1.3rem;
+}
+
+.resumeSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.resumeSection h2 {
+  font-size: 1.2rem;
+}
+
+.resumeSectionTitle,
+.resumeSkillInput,
+.resumeActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.resumeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.resumeSkillInput {
+  justify-content: flex-start;
+}
+
+.resumeSkills,
+.previewSkills {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.projectEditor {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.projectEditor .MuiTextField-root:nth-child(3) {
+  grid-column: 1 / -1;
+}
+
+.projectEditor button {
+  justify-self: start;
+}
+
+.resumePreview {
+  position: sticky;
+  top: 1rem;
+  line-height: 1.6;
+}
+
+.resumePreview h2 {
+  font-size: 2rem;
+}
+
+.resumePreview h3 {
+  color: #315b90;
+  font-size: 1.1rem;
+}
+
+.previewBlock {
+  border-top: 1px solid #dfe5ee;
+  padding-top: 1rem;
+}
+
+.previewBlock h4 {
+  margin-bottom: 0.7rem;
+}
+
+.previewSkills span {
+  background: #e9f0f8;
+  color: #27496d;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.9rem;
+}
+
+.previewBlock article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.previewBlock article span {
+  color: #607089;
+}
+
+.saveStatus {
+  color: #1f7a45;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .landingPageContainer nav,
+  .landingMainContainer,
+  .navBar,
+  .meetContainer,
+  .resumeHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .landingMainContainer {
+    padding-block: 2rem;
+  }
+
+  .landingMainContainer>div:nth-child(1) {
+    font-size: 1.4rem;
+  }
+
+  .landingMainContainer>div:nth-child(2) img,
+  .rightPanel > img {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: contain;
+  }
+
+  .meetContainer {
+    height: auto;
+    padding-block: 2rem;
+  }
+
+  .resumeLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .resumePreview {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .landingPageContainer nav .navlist,
+  .landingActions,
+  .resumeSectionTitle,
+  .resumeSkillInput,
+  .resumeActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .resumeGrid,
+  .projectEditor {
+    grid-template-columns: 1fr;
+  }
+}
