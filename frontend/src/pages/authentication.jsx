@@ -109,9 +109,9 @@ export default function Authentication() {
                                 margin="normal"
                                 required
                                 fullWidth
-                                id="username"
+                                id="fullname"
                                 label="Full Name"
-                                name="username"
+                                name="fullname"
                                 value={name}
                                 autoFocus
                                 onChange={(e) => setName(e.target.value)}
