@@ -81,33 +81,19 @@ export const connectToSocket = (server) => {
 
         socket.on("disconnect", () => {
 
-            var diffTime = Math.abs(timeOnline[socket.id] - new Date())
+            for (const [room, participants] of Object.entries(connections)) {
+                if (!participants.includes(socket.id)) continue
 
-            var key
+                connections[room] = participants.filter((id) => id !== socket.id)
 
-            for (const [k, v] of JSON.parse(JSON.stringify(Object.entries(connections)))) {
+                connections[room].forEach((id) => {
+                    io.to(id).emit('user-left', socket.id)
+                })
 
-                for (let a = 0; a < v.length; ++a) {
-                    if (v[a] === socket.id) {
-                        key = k
-
-                        for (let a = 0; a < connections[key].length; ++a) {
-                            io.to(connections[key][a]).emit('user-left', socket.id)
-                        }
-
-                        var index = connections[key].indexOf(socket.id)
-
-                        connections[key].splice(index, 1)
-
-
-                        if (connections[key].length === 0) {
-                            delete connections[key]
-                        }
-                    }
+                if (connections[room].length === 0) {
+                    delete connections[room]
                 }
-
             }
-
 
         })
 
