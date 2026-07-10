@@ -1,8 +1,6 @@
 import express from "express";
 import { createServer } from "node:http";
 
-import { Server } from "socket.io";
-
 import mongoose from "mongoose";
 import { connectToSocket } from "./controllers/socketManager.js";
 
@@ -11,8 +9,9 @@ import userRoutes from "./routes/users.routes.js";
 
 const app = express();
 const server = createServer(app);
-const io = connectToSocket(server);
+connectToSocket(server);
 
+const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://imdigitalashish:imdigitalashish@cluster0.cujabk4.mongodb.net/";
 
 app.set("port", (process.env.PORT || 8000))
 app.use(cors());
@@ -22,18 +21,17 @@ app.use(express.urlencoded({ limit: "40kb", extended: true }));
 app.use("/api/v1/users", userRoutes);
 
 const start = async () => {
-    app.set("mongo_user")
-    const connectionDb = await mongoose.connect("mongodb+srv://imdigitalashish:imdigitalashish@cluster0.cujabk4.mongodb.net/")
+    try {
+        const connectionDb = await mongoose.connect(MONGO_URI)
+        console.log(`Mongo connected, DB host: ${connectionDb.connection.host}`)
 
-    console.log(`MONGO Connected DB HOst: ${connectionDb.connection.host}`)
-    server.listen(app.get("port"), () => {
-        console.log("LISTENIN ON PORT 8000")
-    });
-
-
-
+        server.listen(app.get("port"), () => {
+            console.log(`Listening on port ${app.get("port")}`)
+        });
+    } catch (e) {
+        console.error("Failed to start server:", e);
+        process.exit(1);
+    }
 }
-
-
 
 start();
