@@ -431,11 +431,12 @@ export default function VideoMeetComponent() {
 
 
     let sendMessage = () => {
-        console.log(socketRef.current);
-        socketRef.current.emit('chat-message', message, username)
+        const trimmed = message.trim();
+        if (!trimmed) {
+            return;
+        }
+        socketRef.current.emit('chat-message', trimmed, username)
         setMessage("");
-
-        // this.setState({ message: "", sender: username })
     }
 
     
@@ -489,7 +490,7 @@ export default function VideoMeetComponent() {
                             </div>
 
                             <div className={styles.chattingArea}>
-                                <TextField value={message} onChange={(e) => setMessage(e.target.value)} id="outlined-basic" label="Enter Your chat" variant="outlined" />
+                                <TextField value={message} onChange={(e) => setMessage(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); sendMessage(); } }} id="outlined-basic" label="Enter Your chat" variant="outlined" />
                                 <Button variant='contained' onClick={sendMessage}>Send</Button>
                             </div>
 
