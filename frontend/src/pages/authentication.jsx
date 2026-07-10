@@ -45,8 +45,8 @@ export default function Authentication() {
             }
             if (formState === 1) {
                 let result = await handleRegister(name, username, password);
-                console.log(result);
                 setUsername("");
+                setName("");
                 setMessage(result);
                 setOpen(true);
                 setError("")
@@ -54,10 +54,7 @@ export default function Authentication() {
                 setPassword("")
             }
         } catch (err) {
-
-            console.log(err);
-            let message = (err.response.data.message);
-            setError(message);
+            setError(err.response?.data?.message || "Something went wrong. Please try again.");
         }
     }
 
