@@ -1,4 +1,4 @@
-# Connect Your Learning — Frontend
+# zoom — Frontend
 
 React frontend for the Connect Your Learning video collaboration app.
 Built with Create React App, Material UI, React Router, Axios and Socket.IO client.
