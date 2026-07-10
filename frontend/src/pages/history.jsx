@@ -67,7 +67,9 @@ export default function History() {
                             </CardContent>
                         </Card>
                     )
-                }) : <></>
+                }) : <Typography sx={{ mt: 2, ml: 2 }} color="text.secondary">
+                    No meetings yet. Join a meeting from the home page and it will show up here.
+                </Typography>
 
             }
 
