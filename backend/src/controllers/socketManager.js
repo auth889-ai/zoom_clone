@@ -81,6 +81,8 @@ export const connectToSocket = (server) => {
 
         socket.on("disconnect", () => {
 
+            delete timeOnline[socket.id]
+
             for (const [room, participants] of Object.entries(connections)) {
                 if (!participants.includes(socket.id)) continue
 
@@ -92,6 +94,7 @@ export const connectToSocket = (server) => {
 
                 if (connections[room].length === 0) {
                     delete connections[room]
+                    delete messages[room]
                 }
             }
 
