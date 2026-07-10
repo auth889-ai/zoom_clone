@@ -65,10 +65,9 @@ export default function VideoMeetComponent() {
     // }
 
     useEffect(() => {
-        console.log("HELLO")
         getPermissions();
-
-    })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     let getDislayMedia = () => {
         if (screen) {
