@@ -1,15 +1,15 @@
 import httpStatus from "http-status";
 import { User } from "../models/user.model.js";
-import bcrypt, { hash } from "bcrypt"
+import bcrypt from "bcrypt"
 
-import crypto from "crypto"
+import crypto from "node:crypto"
 import { Meeting } from "../models/meeting.model.js";
 const login = async (req, res) => {
 
     const { username, password } = req.body;
 
     if (!username || !password) {
-        return res.status(400).json({ message: "Please Provide" })
+        return res.status(httpStatus.BAD_REQUEST).json({ message: "Please provide username and password" })
     }
 
     try {
@@ -32,7 +32,7 @@ const login = async (req, res) => {
         }
 
     } catch (e) {
-        return res.status(500).json({ message: `Something went wrong ${e}` })
+        return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({ message: `Something went wrong ${e}` })
     }
 }
 
